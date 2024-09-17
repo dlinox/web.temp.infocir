@@ -1,0 +1,10 @@
+# Activar reescritura de URL
+RewriteEngine On
+
+# Si una carpeta o un archivo existe, úsalo directamente
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+RewriteRule ^ - [L]
+
+# Redirigir todo al index.html
+RewriteRule ^ /index.html [L]
